@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./PlaceDetails.css"
 function PlaceDetails() {
   return (
-    <div>PlaceDetails</div>
+    <div className='mainPage'>PlaceDetails</div>
   )
 }
 
