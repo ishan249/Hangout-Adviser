@@ -1,0 +1,39 @@
+.typewriter_text {
+  color: rgb(242, 47, 47);
+}
+.Heading {
+  margin: 160px 66px;
+  /* border: 2px black solid; */
+  width: 500px;
+}
+.subHeading {
+  margin: 50px;
+  height: 500px;
+  width: 500px;
+}
+@media screen and (max-width: 480px) {
+  .subHeading {
+    margin-top: 0px;
+    height: 300px;
+    width: 300px;
+  }
+  .Heading{
+    margin-top: 16px;
+    margin-bottom: 5px;
+    margin-left: 26px;
+    margin-right: 26px;
+    width: 500px;
+  }
+}
+.startButton{
+    margin-top: 26px;
+    font-size: 18px;
+    color: black;
+    background-color:#4e56e8;
+    border-radius: 12px;
+    padding: 8px;
+}
+.startButton:hover{
+    background-color: #4431ea;
+}
+
