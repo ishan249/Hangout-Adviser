@@ -1,6 +1,7 @@
 const axios = require('axios');
 const express = require('express');
 const app = express();
+require("dotenv").config();
 app.use((req, res, next) => {
     res.set("Access-Control-Allow-Origin", "*");
     res.set("Access-Control-Allow-Headers", "*");
@@ -17,8 +18,10 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    axios.get(`https://serpapi.com/search.json?engine=google&q=Coffee&location=Austin%2C+Texas%2C+United+States&google_domain=google.com&gl=us&hl=en&api_key=${process.env.REACT_APP_API_KEY}`)
+app.post("/", (req, res) => {
+    let {addressName, placeName} = req.body;
+    console.log(addressName, placeName);
+    axios.get(`https://serpapi.com/search.json?engine=google&q=${placeName}&location=${addressName}&google_domain=google.com&gl=us&hl=en&api_key=891d25145df260a9fe20a0c64000f46fa08472219b27d0fbf3da0b7f96768b7a`)
         .then(function (response) {
             res.send(response.data);
         })

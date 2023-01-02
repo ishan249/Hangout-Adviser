@@ -1,16 +1,13 @@
 import React from 'react'
-import Header from '../Header/Header';
 import List from '../List/List';
 import "./Dashboard.css";
-import PlaceDetails from '../PlaceDetails/PlaceDetails';
 function Dashboard() {
   return (
-    <>
-    <div className='flex flex-wrap dashboard-components'>
+    <div className='dashboard-components'>
+    <div className=''>
         <List/>
-        <PlaceDetails/>
     </div>
-    </>
+    </div>
   )
 }
 
