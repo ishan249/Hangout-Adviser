@@ -1,13 +1,19 @@
 import React from "react";
 import axios from "axios";
 import "./List.css";
+import Places from "./Places";
+import Error from "./Error";
+import LoadingSpinner from "../Loadingspinner/LoadingSpinner";
 import { useState } from "react";
 import {AnimatePresence, motion} from 'framer-motion'
 export const List = () => {
   const [address, setAddress] = useState("");
   const [place, setPlace] = useState("cafe");
+  const [loading, setLoading] = useState(false);
   const [outcomeData, setData] = useState([]);
+  const [error, setError] = useState("");
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     var userdata = {
       addressName: address,
@@ -26,8 +32,16 @@ export const List = () => {
       data: userdata,
     })
       .then((res) => {
-        console.log(res.data.local_results.places)
-        setData(res.data.local_results.places);
+        setLoading(false);
+        if (res.data.error) {
+          setError(res.data.error);
+          setData([]);
+          console.log(res.data);
+        }
+        else{
+          setData(res.data.local_results.places);
+          setError("")
+        }
       })
       .catch((e) => {
         alert(e);
@@ -83,22 +97,29 @@ export const List = () => {
           Places You can Visit
         </div>
       </div>
-      <div className="flex font-AlbertSans flex-wrap justify-center">
+      {loading?<LoadingSpinner/>:
+      <div className="bg-[#5B63E6]">
+      <div className="flex font-AlbertSans flex-wrap justify-center outcome-area">
       {!outcomeData ||
-        (outcomeData.length === 0 && <h2 className="text-white text-xl mt-6">Nothing to see here yet</h2>)}
-        {outcomeData.map((places) => (
+        ((outcomeData.length === 0 && !error ) ? <h2 className="text-white text-xl mt-6">Nothing to see here yet</h2>:null)}
+        {error? <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+           className="bg-white mainCard">
+              <Error/>
+          </motion.div>:outcomeData.map((places) => (
           <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
            className="bg-white mainCard">
-            <div className="Card">
-              <div className="font-bold text-xl">{places.title}</div>
-              <p className="text-gray-700 text-base">{places.address}</p>
-            </div>
+            <Places title={places.title} address = {places.address} type = {places.type} hours = {places.hours}/>
           </motion.div>
         ))}
       </div>
+      </div>
+      }
     </>
   );
 };
