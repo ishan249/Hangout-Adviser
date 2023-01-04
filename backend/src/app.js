@@ -19,7 +19,9 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.post("/", (req, res) => {
-    let {addressName, placeName} = req.body;
+    let {addressName, placeName} = req.body; //taking address and place value from frontend form
+
+    //calling serp api and sending back response to frontend
     axios.get(`https://serpapi.com/search.json?engine=google&q=${placeName}&location=${addressName}&google_domain=google.com&gl=us&hl=en&api_key=${process.env.REACT_APP_API_KEY}`)
         .then(function (response) {
             res.send(response.data);

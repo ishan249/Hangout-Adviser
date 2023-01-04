@@ -13,13 +13,13 @@ export const List = () => {
   const [outcomeData, setData] = useState([]);
   const [error, setError] = useState("");
   const handleSubmit = (e) => {
-    setLoading(true);
+
+    setLoading(true);//loading true when button clicks and sends a request 
     e.preventDefault();
     var userdata = {
       addressName: address,
       placeName: place,
     };
-    console.log(userdata);
     axios({
       method: "POST",
       url: `http://localhost:5000/`,
@@ -32,11 +32,13 @@ export const List = () => {
       data: userdata,
     })
       .then((res) => {
-        setLoading(false);
+        setLoading(false);//loading false and render data when response is there
         if (res.data.error) {
+          //if response from backend is having error then set error value
           setError(res.data.error);
           setData([]);
         } else {
+          //if response from backend is not having error then set places data
           setData(res.data.local_results.places);
           setError("");
         }
@@ -55,10 +57,13 @@ export const List = () => {
           <div className="px-4 py-3 font-AlbertSans searchHeading font-bold text-xl">
             Hangout Advisor
           </div>
+          {/* form to take address and type of place */}
+
           <form onSubmit={handleSubmit} action="">
             <div className="m-4 Address-Input">
               <label htmlFor="Address">Address</label>
               <br />
+              {/* text input field for address */}
               <input
                 type="text"
                 className="addressInput"
@@ -71,6 +76,7 @@ export const List = () => {
             <div className="m-4 place-selection">
               <label for="typeofplace">Type of Place </label>
               <br />
+              {/* dropdown menu for type of place */}
               <select
                 value={place}
                 onChange={handleChange}
@@ -95,17 +101,21 @@ export const List = () => {
           Places You can Visit
         </div>
       </div>
+
+      {/* conditional rendering, if loading then load loading spinner otherwise load response */}
       {loading ? (
         <LoadingSpinner />
       ) : (
         <div className="bg-[#5B63E6]">
           <div className="flex font-AlbertSans flex-wrap justify-center outcome-area">
+            {/* conditional rendering, if no data then load this otherwise load data */}
             {!outcomeData ||
               (outcomeData.length === 0 && !error ? (
                 <h2 className="text-white text-xl mt-6">
                   Nothing to see here yet
                 </h2>
               ) : null)}
+              {/* If error in response then load Error component else Places component */}
             {error ? (
               <motion.div
                 initial={{ opacity: 0 }}
