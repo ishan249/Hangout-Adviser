@@ -8,7 +8,6 @@ function Homepage() {
   const styler = {
     color: "#5B63E6",
   };
-  const svgStyler = {};
   return (
     <div className="main-container flex justify-between flex-wrap-reverse">
       <div className="text-center home-svg text-2xl font-AlbertSans">

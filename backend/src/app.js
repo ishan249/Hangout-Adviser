@@ -25,7 +25,6 @@ app.post("/", (req, res) => {
             res.send(response.data);
         })
         .catch(function (error) {
-            console.log("reaching here and printing your error");
             res.send(error.response.data);
         });
 });

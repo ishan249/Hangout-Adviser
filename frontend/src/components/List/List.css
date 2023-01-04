@@ -1,54 +1,57 @@
-.searchBox{
-    background-color: white;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 20px;
-    border-radius: 14px;
-    margin-top: 10px;
-    width: 320px;
+.searchBox {
+  background-color: white;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  margin-top: 10px;
+  width: 320px;
 }
-.mainList{
-    background-color: #5B63E6;
-    margin-top: 0;
-    display: flex;
-    justify-content: center;
+.mainList {
+  background-color: #5b63e6;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
 }
-.searchHeading{
-    color:#5B63E6;
+.searchHeading {
+  color: #5b63e6;
 }
-.searchBtn{
-    margin:10px 16px;
-    border-radius: 8px;
-    font-family: 'Albert Sans';
-    background-color: rgb(30, 27, 27);
-    color: white;
-    padding: 6px 10px;
+.searchBtn {
+  margin: 10px 16px;
+  border-radius: 8px;
+  font-family: "Albert Sans";
+  background-color: rgb(30, 27, 27);
+  color: white;
+  padding: 6px 10px;
 }
-.addressInput, .placeSelection{
-    border: 1px black solid;
-    margin-top: 4px;
-    border-radius: 6px;
-    height:32px;
-    padding:6px;
-    width: 220px;
+.addressInput,
+.placeSelection {
+  border: 1px black solid;
+  margin-top: 4px;
+  border-radius: 6px;
+  height: 32px;
+  padding: 6px;
+  width: 220px;
 }
-::placeholder{
-    padding: 6px;
+::placeholder {
+  padding: 6px;
 }
-.mainCard{
-    margin: 30px;
-    padding: 16px;
-    border-radius: 8px;
-    width: 300px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.mainCard {
+  margin: 30px;
+  padding: 16px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.outcome-area{
-    /* width: 100vh; */
-    background-color: #5B63E6;
+.outcome-area {
+  /* width: 100vh; */
+  background-color: #5b63e6;
 }
-.tags{
-    margin: 10px 6px 0px 0px;
-    background-color: rgb(215, 224, 236);
-    padding: 2px 4px;
-    border-radius: 6px;
+.tags {
+  margin: 10px 6px 0px 0px;
+  background-color: rgb(215, 224, 236);
+  padding: 2px 4px;
+  border-radius: 6px;
 }
